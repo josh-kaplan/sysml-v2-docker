@@ -1,0 +1,12 @@
+version: '3'
+services:
+  sysml2-lab:
+    build: .
+    ports:
+      - 8080:8080
+      - 8888:8888
+    volumes:
+      - ./src:/workspace
+    working_dir: /workspace
+    command: >
+      /opt/anaconda3/bin/jupyter lab --ip=0.0.0.0 --port=8888 --allow-root --no-browser --LabApp.notebook_dir="/workspace/notebooks" --LabApp.token="sysml2"
